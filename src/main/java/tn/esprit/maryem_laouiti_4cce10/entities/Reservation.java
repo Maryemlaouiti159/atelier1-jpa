@@ -13,14 +13,14 @@ public class Reservation {
     private LocalDate dateFin;
     private String statut;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
     private Client client;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vehicule_id")
     private Vehicule vehicule;
 
-    @OneToOne(mappedBy = "reservation")
+    @OneToOne(mappedBy = "reservation",fetch = FetchType.LAZY)
     private Contrat contrat;
 }

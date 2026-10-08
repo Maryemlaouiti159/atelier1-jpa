@@ -6,6 +6,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jakarta.persistence.CascadeType.ALL;
+
 @Entity
 @Getter @Setter @NoArgsConstructor
 public class Contrat {
@@ -14,10 +16,10 @@ public class Contrat {
     private LocalDate dateSignature;
     private double montantTotal;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "reservation_id", unique = true)
     private Reservation reservation;
 
-    @OneToMany(mappedBy = "contrat")
+    @OneToMany(mappedBy = "contrat",fetch = FetchType.LAZY, cascade = ALL)
     private List<Paiement> paiements = new ArrayList<>();
 }

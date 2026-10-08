@@ -14,9 +14,9 @@ public class Agence {
     private String adresse;
     private String telephone;
 
-    @OneToMany(mappedBy = "agence")
+    @OneToMany(mappedBy = "agence",fetch = FetchType.LAZY)
     private List<Employe> employes = new ArrayList<>();
 
-    @OneToMany(mappedBy = "agence")
+    @OneToMany(mappedBy = "agence",fetch = FetchType.LAZY)
     private List<Vehicule> vehicules = new ArrayList<>();
 }

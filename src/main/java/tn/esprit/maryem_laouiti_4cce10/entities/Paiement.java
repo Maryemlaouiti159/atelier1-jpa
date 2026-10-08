@@ -13,7 +13,7 @@ public class Paiement {
     private LocalDate datePaiement;
     private String modePaiement;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "contrat_id")
     private Contrat contrat;
 }

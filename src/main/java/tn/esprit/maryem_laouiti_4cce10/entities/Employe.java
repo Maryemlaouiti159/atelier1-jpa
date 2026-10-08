@@ -12,7 +12,7 @@ public class Employe {
     private String prenom;
     private String poste;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "agence_id")
     private Agence agence;
 }

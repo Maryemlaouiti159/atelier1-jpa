@@ -5,6 +5,8 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jakarta.persistence.CascadeType.PERSIST;
+
 @Entity
 @Getter @Setter @NoArgsConstructor
 public class Client {
@@ -15,6 +17,6 @@ public class Client {
     private String email;
     private String telephone;
 
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "client",fetch = FetchType.LAZY,cascade = PERSIST)
     private List<Reservation> reservations = new ArrayList<>();
 }

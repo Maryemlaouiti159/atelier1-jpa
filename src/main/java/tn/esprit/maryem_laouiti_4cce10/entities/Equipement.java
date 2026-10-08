@@ -13,6 +13,6 @@ public class Equipement {
     private String nom;
     private String description;
 
-    @ManyToMany(mappedBy = "equipements")
+    @ManyToMany(mappedBy = "equipements",fetch = FetchType.LAZY)
     private List<Vehicule> vehicules = new ArrayList<>();
 }
