@@ -1,7 +1,9 @@
 package tn.esprit.maryem_laouiti_4cce10.service.impls;
 
 import java.util.List;
+
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.maryem_laouiti_4cce10.entities.Contrat;
 import tn.esprit.maryem_laouiti_4cce10.exception.ResourceNotFoundException;
