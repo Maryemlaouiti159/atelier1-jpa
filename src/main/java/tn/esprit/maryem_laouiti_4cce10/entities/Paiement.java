@@ -1,5 +1,6 @@
 package tn.esprit.maryem_laouiti_4cce10.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
@@ -15,5 +16,6 @@ public class Paiement {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "contrat_id")
+    @JsonBackReference("contrat-paiements")
     private Contrat contrat;
 }

@@ -1,5 +1,6 @@
 package tn.esprit.maryem_laouiti_4cce10.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
@@ -20,6 +21,7 @@ public class Contrat {
     @JoinColumn(name = "reservation_id", unique = true)
     private Reservation reservation;
 
-    @OneToMany(mappedBy = "contrat",fetch = FetchType.LAZY, cascade = ALL)
+    @OneToMany(mappedBy = "contrat", fetch = FetchType.LAZY, cascade = ALL)
+    @JsonManagedReference("contrat-paiements")
     private List<Paiement> paiements = new ArrayList<>();
 }

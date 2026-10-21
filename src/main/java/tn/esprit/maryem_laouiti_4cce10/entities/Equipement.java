@@ -1,5 +1,6 @@
 package tn.esprit.maryem_laouiti_4cce10.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class Equipement {
     private String nom;
     private String description;
 
-    @ManyToMany(mappedBy = "equipements",fetch = FetchType.LAZY)
+    @JsonIgnore
+    @ManyToMany(mappedBy = "equipements", fetch = FetchType.LAZY)
     private List<Vehicule> vehicules = new ArrayList<>();
 }

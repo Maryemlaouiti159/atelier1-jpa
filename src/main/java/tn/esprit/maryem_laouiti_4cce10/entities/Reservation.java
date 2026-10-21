@@ -1,11 +1,14 @@
 package tn.esprit.maryem_laouiti_4cce10.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
 
 @Entity
 @Getter @Setter @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Reservation {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,6 +24,7 @@ public class Reservation {
     @JoinColumn(name = "vehicule_id")
     private Vehicule vehicule;
 
-    @OneToOne(mappedBy = "reservation",fetch = FetchType.LAZY)
+    @JsonIgnore
+    @OneToOne(mappedBy = "reservation", fetch = FetchType.LAZY)
     private Contrat contrat;
 }

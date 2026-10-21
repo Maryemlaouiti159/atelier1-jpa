@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
 
-import static jakarta.persistence.CascadeType.PERSIST;
-
 @Entity
 @Getter @Setter @NoArgsConstructor
 public class Maintenance {
@@ -15,7 +13,7 @@ public class Maintenance {
     private String description;
     private double cout;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vehicule_id")
     private Vehicule vehicule;
 }

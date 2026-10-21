@@ -1,8 +1,11 @@
 package tn.esprit.maryem_laouiti_4cce10.service.impls;
 
 import java.util.List;
+
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import tn.esprit.maryem_laouiti_4cce10.entities.Vehicule;
 import tn.esprit.maryem_laouiti_4cce10.exception.ResourceNotFoundException;
 import tn.esprit.maryem_laouiti_4cce10.repository.IVehiculeRepository;
@@ -34,6 +37,7 @@ public class VehiculeServiceImpl implements IVehiculeService {
         return vehiculeRepository.findAll();
     }
 
+    @Transactional
     @Override
     public Vehicule update(Long id, Vehicule vehicule) {
         verifier(vehicule);
@@ -58,4 +62,5 @@ public class VehiculeServiceImpl implements IVehiculeService {
             throw new IllegalArgumentException("Le prix par jour ne peut pas être négatif");
         }
     }
+
 }
